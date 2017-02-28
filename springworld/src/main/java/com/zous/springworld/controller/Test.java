@@ -1,6 +1,6 @@
-package com.qtone.Studyabroad.controller;
+package com.zous.springworld.controller;
 
-import com.qtone.Studyabroad.dao.IUserDAO;
+import com.zous.springworld.dao.IUserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

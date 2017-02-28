@@ -1,6 +1,7 @@
-package com.qtone.Studyabroad.dao;
+package com.zous.springworld.dao;
 
-import com.qtone.Studyabroad.domain.User;
+
+import com.zous.springworld.domain.User;
 
 /**
  * Created by OnlyLoveForBelinda on 2016/4/12.
