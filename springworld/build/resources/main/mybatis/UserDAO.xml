@@ -2,9 +2,9 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.qtone.Studyabroad.dao.IUserDAO">
+<mapper namespace="com.zous.springworld.dao.IUserDAO">
 
-    <select id="queryOne" parameterType="int" resultType="com.qtone.Studyabroad.domain.User">
+    <select id="queryOne" parameterType="int" resultType="com.zous.springworld.domain.User">
         select * from t_user where user_id = #{id}
     </select>
 

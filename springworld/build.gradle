@@ -13,11 +13,13 @@ repositories {
 
 dependencies {
     compile(
+            'org.springframework:spring-core:4.0.5.RELEASE',
             "org.springframework:spring-aop:4.0.5.RELEASE",
+            "org.springframework:spring-beans:4.0.5.RELEASE",
             "org.springframework:spring-aspects:4.0.5.RELEASE",
             "org.springframework:spring-context:4.0.5.RELEASE",
             "org.springframework:spring-web:4.0.5.RELEASE",
-            "org.springframework:spring-webmvc:4.0.5.RELEASE",
+            "org.springframework:spring-webmvc:4.0.5.RELEASE",//这就是spring-mvc
             "org.springframework:spring-context-support:4.0.5.RELEASE",
             "org.springframework:spring-jdbc:4.0.5.RELEASE",
             "commons-dbcp:commons-dbcp:1.4",
