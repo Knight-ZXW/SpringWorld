@@ -16,7 +16,7 @@ dependencies {
             'org.springframework:spring-core:4.0.5.RELEASE',
             "org.springframework:spring-aop:4.0.5.RELEASE",
             "org.springframework:spring-beans:4.0.5.RELEASE",
-            "org.springframework:spring-aspects:4.0.5.RELEASE",
+            "org.springframework:spring-aspects:4.0.5.RELEASE", //aop切面方法
             "org.springframework:spring-context:4.0.5.RELEASE",
             "org.springframework:spring-web:4.0.5.RELEASE",
             "org.springframework:spring-webmvc:4.0.5.RELEASE",//这就是spring-mvc
