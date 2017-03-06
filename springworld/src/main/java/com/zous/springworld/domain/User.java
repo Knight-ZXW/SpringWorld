@@ -4,35 +4,28 @@ package com.zous.springworld.domain;
  * Created by OnlyLoveForBelinda on 2016/4/12.
  */
 public class User {
-    private int user_id;
-    private String user_name;
+
+    private int userId;
+    private String userName;
     private String password;
-    private String last_visit;
-    private String last_ip;
-    private String class_id;
+    private String lastVisit;
+    private String lastIp;
 
-    public String getClass_id() {
-        return class_id;
+
+    public int getUserId() {
+        return userId;
     }
 
-    public void setClass_id(String class_id) {
-        this.class_id = class_id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
-
-    public String getUser_name() {
-        return user_name;
-    }
-
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {
@@ -43,32 +36,31 @@ public class User {
         this.password = password;
     }
 
-    public String getLast_visit() {
-        return last_visit;
+    public String getLastVisit() {
+        return lastVisit;
     }
 
-    public void setLast_visit(String last_visit) {
-        this.last_visit = last_visit;
+    public void setLastVisit(String lastVisit) {
+        this.lastVisit = lastVisit;
     }
 
-    public String getLast_ip() {
-        return last_ip;
+    public String getLastIp() {
+        return lastIp;
     }
 
-    public void setLast_ip(String last_ip) {
-        this.last_ip = last_ip;
+    public void setLastIp(String lastIp) {
+        this.lastIp = lastIp;
     }
 
 
     @Override
     public String toString() {
         return "User{" +
-                "user_id=" + user_id +
-                ", user_name='" + user_name + '\'' +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
-                ", last_visit='" + last_visit + '\'' +
-                ", last_ip='" + last_ip + '\'' +
-                ", class_id='" + class_id + '\'' +
+                ", lastVisit='" + lastVisit + '\'' +
+                ", lastIp='" + lastIp + '\'' +
                 '}';
     }
 }

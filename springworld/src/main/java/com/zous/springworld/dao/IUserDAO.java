@@ -8,4 +8,5 @@ import com.zous.springworld.domain.User;
 public interface IUserDAO {
 
     public User queryOne(int id);
+    public User insertUser(User user);
 }

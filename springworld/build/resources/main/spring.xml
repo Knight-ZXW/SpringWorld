@@ -10,15 +10,20 @@
            http://www.springframework.org/schema/tx      http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
        ">
 
+    <!--基于注解的依赖注入-->
+    <context:annotation-config/>
+
+    <!--表示 支持基于注解的aop-->
+    <aop:aspectj-autoproxy/>
     <context:component-scan base-package="*"/>
 
     <!-- 配置数据源 -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/test"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/world"/>
         <property name="username" value="root"/>
-        <property name="password" value="wudi5201314"/>
+        <property name="password" value="root"/>
     </bean>
 
     <!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
@@ -40,11 +45,11 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <!-- 自动扫描domain目录, 省掉Configuration.xml里的手工配置 -->
-        <property name="typeAliasesPackage" value="com.qtone.Studyabroad.domain"/>
+        <property name="typeAliasesPackage" value="com.zous.springworld.domain"/>
         <!-- 显式指定Mapper文件位置 -->
         <property name="mapperLocations" value="classpath:/mybatis/**/*DAO.xml"/>
     </bean>
     <!-- 扫描basePackage下接口 自动生成代理实现类 -->
-    <mybatis:scan base-package="com.qtone.Studyabroad.dao" factory-ref="sqlSessionFactory"/>
+    <mybatis:scan base-package="com.zous.springworld.dao" factory-ref="sqlSessionFactory"/>
 
 </beans>
