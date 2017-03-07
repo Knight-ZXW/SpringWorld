@@ -32,7 +32,7 @@ public class UserDao implements IUserDAO {
             public User extractData(ResultSet rs) throws SQLException, DataAccessException {
                 if (rs.next()) {
                     User user = new User();
-                    user.setUserName(rs.getString("name"));
+                    user.setName(rs.getString("name"));
                     return user;
                 }
                 return null;

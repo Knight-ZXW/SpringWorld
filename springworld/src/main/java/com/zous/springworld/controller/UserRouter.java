@@ -21,6 +21,6 @@ public class UserRouter {
     public String HelloWorld(){
         User user = userDao.queryOne(1);
 
-        return "hello "+user.getUserName();
+        return "hello "+user.getName();
     }
 }

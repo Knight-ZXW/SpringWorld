@@ -5,27 +5,27 @@ package com.zous.springworld.domain;
  */
 public class User {
 
-    private int userId;
-    private String userName;
+    private int id;
+    private String name;
     private String password;
     private String lastVisit;
     private String lastIp;
 
 
-    public int getUserId() {
-        return userId;
+    public int getId() {
+        return id;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getName() {
+        return name;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPassword() {
@@ -56,8 +56,8 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "userId=" + userId +
-                ", userName='" + userName + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", lastVisit='" + lastVisit + '\'' +
                 ", lastIp='" + lastIp + '\'' +
