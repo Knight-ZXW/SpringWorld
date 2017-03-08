@@ -1,12 +1,11 @@
 package com.zous.springworld.mapper;
 
-import com.zous.springworld.domain.User;
-import org.apache.ibatis.annotations.Select;
+import com.zous.springworld.entity.User;
 
 /**
  * Created by zhuoxiuwu on 2017/3/6.
+ * 仅仅是实现抽象接口，具体的映射关系 卸载 mapper包下
  */
 public interface UserMapper {
-    @Select("SELECT * FROM user where id = #{id}")
     User selectUser(int id);
 }

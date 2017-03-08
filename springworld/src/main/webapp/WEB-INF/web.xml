@@ -7,7 +7,7 @@
     <!--  Spring 服务层的配置文件 使用这个spring servlet 配置文件-->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:spring.xml</param-value>
+        <param-value>classpath:spring/spring-*.xml</param-value>
     </context-param>
 
     <!--  Spring 容器启动监听器 -->
@@ -16,45 +16,24 @@
         </listener-class>
     </listener>
 
+    <!--为DispatcherServlet建立映射 -->
+
+
+    <!-- 如果是用mvn命令生成的xml，需要修改servlet版本为3.1 -->
+    <!-- 配置DispatcherServlet -->
     <servlet>
         <servlet-name>springmvc</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet
-        </servlet-class>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!-- 配置springMVC需要加载的配置文件
+            spring-dao.xml,spring-service.xml,spring-web.xml
+            Mybatis - > spring -> springmvc
+         -->
         <load-on-startup>1</load-on-startup>
     </servlet>
-    <!--为DispatcherServlet建立映射 -->
     <servlet-mapping>
         <servlet-name>springmvc</servlet-name>
+        <!-- 默认匹配所有的请求 -->
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>*.css</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>*.gif</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>*.jpg</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>*.png</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>*.js</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>*.swf</url-pattern>
-    </servlet-mapping>
 </web-app>

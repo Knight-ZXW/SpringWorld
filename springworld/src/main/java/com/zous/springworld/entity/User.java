@@ -1,4 +1,4 @@
-package com.zous.springworld.domain;
+package com.zous.springworld.entity;
 
 /**
  * Created by OnlyLoveForBelinda on 2016/4/12.
