@@ -5,19 +5,18 @@ package com.zous.springworld.entity;
  */
 public class User {
 
-    private int id;
+    private int userId;
     private String name;
     private String password;
-    private String lastVisit;
-    private String lastIp;
 
 
-    public int getId() {
-        return id;
+
+    public int getUserId() {
+        return userId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getName() {
@@ -36,31 +35,15 @@ public class User {
         this.password = password;
     }
 
-    public String getLastVisit() {
-        return lastVisit;
-    }
 
-    public void setLastVisit(String lastVisit) {
-        this.lastVisit = lastVisit;
-    }
-
-    public String getLastIp() {
-        return lastIp;
-    }
-
-    public void setLastIp(String lastIp) {
-        this.lastIp = lastIp;
-    }
 
 
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+                "userId=" + userId +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
-                ", lastVisit='" + lastVisit + '\'' +
-                ", lastIp='" + lastIp + '\'' +
                 '}';
     }
 }

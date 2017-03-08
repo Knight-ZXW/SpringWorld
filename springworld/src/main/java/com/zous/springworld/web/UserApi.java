@@ -22,4 +22,14 @@ public class UserApi {
         User user = userMapper.selectUser(1);
         return user+"";
     }
+
+    @RequestMapping(value = "/register",produces="application/json;charset=UTF-8")
+    @ResponseBody
+    public String register(){
+        User user = new User();
+        user.setName("xx");
+        user.setPassword("dfdf");
+        int success = userMapper.insertUser(user);
+        return user+"";
+    }
 }

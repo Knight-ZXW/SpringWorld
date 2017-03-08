@@ -8,4 +8,5 @@ import com.zous.springworld.entity.User;
  */
 public interface UserMapper {
     User selectUser(int id);
+    int insertUser(User user);
 }

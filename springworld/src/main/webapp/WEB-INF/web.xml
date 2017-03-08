@@ -29,6 +29,7 @@
             Mybatis - > spring -> springmvc
          -->
         <load-on-startup>1</load-on-startup>
+
     </servlet>
     <servlet-mapping>
         <servlet-name>springmvc</servlet-name>
