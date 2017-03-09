@@ -10,15 +10,24 @@
 	http://www.springframework.org/schema/tx
 	http://www.springframework.org/schema/tx/spring-tx.xsd">
     <!-- 扫描service包下所有使用注解的类型 -->
-    <context:component-scan base-package="com.zous.springworld.service" />
+    <context:component-scan base-package="com.zous.springworld.service"/>
 
     <!-- 配置事务管理器 -->
     <bean id="transactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <!-- 注入数据库连接池 -->
-        <property name="dataSource" ref="dataSource" />
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--配置文件上传-->
+    <!--这个id应该是不能变的，可以在DispatcherServlet中看到对这个的初始化过程-->
+    <!--所有 enctype 是 multipart/form-data 都会先被 这个处理在传递给 controller class-->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="1024000"/>
     </bean>
 
     <!-- 配置基于注解的声明式事务 -->
-    <tx:annotation-driven transaction-manager="transactionManager" />
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
 </beans>
