@@ -1,3 +1,7 @@
+##
+-什么是 web Application 和app application如常说的 tomcat、jetty
+- tomcat源码是用Java写的，tomcat以及 Apache http server ，Apache http server 是用c语言开发的；tomcat是Java语言编写的一个servlet容器
+
 ## Servlet容器 以及 Servlet
  什么是Servlet，以及了解常用的Servlet 如 tomcat
 
