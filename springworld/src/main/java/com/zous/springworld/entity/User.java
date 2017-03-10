@@ -9,8 +9,6 @@ public class User {
     private String name;
     private String password;
 
-
-
     public int getUserId() {
         return userId;
     }
@@ -34,8 +32,6 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
-
 
 
     @Override
