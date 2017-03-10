@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zous.springworld.mapper.UserMapper">
+    <select id="addShareFile" resultType="com.zous.springworld.entity.ShareFile">
+        INSERT INTO share_file
+        (
+            `file_name`,
+            `file_type`,
+            `upload_time`,
+            `share_user`,
+            `url`)
+        VALUES
+            (
+                #{file_name},
+                #{file_type},
+                #{upload_time},
+                #{share_user},
+                #{url})
+    </select>
+
+</mapper>

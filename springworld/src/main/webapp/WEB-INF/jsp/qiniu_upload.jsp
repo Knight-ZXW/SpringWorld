@@ -19,6 +19,7 @@
     <input name="file" type="file"/>
     <input name="crc32" type="hidden"/>
     <input name="accept" type="hidden"/>
+    <button type="submit" value="上传"/>
 </form>
 </body>
 </html>

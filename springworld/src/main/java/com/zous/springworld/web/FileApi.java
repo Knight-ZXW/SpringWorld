@@ -1,11 +1,15 @@
 package com.zous.springworld.web;
 
+import com.zous.springworld.service.ShareFileService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import qiniu.support.UploadManager;
+import qiniu.support.UploadToken;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -18,16 +22,19 @@ import java.util.logging.Logger;
 @Controller
 public class FileApi {
     private static final Logger logger = Logger.getLogger(FileApi.class.getSimpleName());
+    @Autowired
+    ShareFileService shareFileService;
 
     @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
-    public @ResponseBody
-    String uploadFileHandler(@RequestParam("name") String name, @RequestParam("file") MultipartFile file){
+    public
+    @ResponseBody
+    String uploadFileHandler(@RequestParam("name") String name, @RequestParam("file") MultipartFile file) {
         if (!file.isEmpty()) {
             try {
                 byte[] bytes = file.getBytes();
 
                 // Creating the directory to store file
-                File dir = new File( File.separator + "tmpFiles");
+                File dir = new File(File.separator + "tmpFiles");
                 if (!dir.exists())
                     dir.mkdirs();
 
@@ -52,8 +59,16 @@ public class FileApi {
         }
     }
 
-    @RequestMapping(value = "/qiniuUpload",method = RequestMethod.GET)
-    public String qiniuUploadFileHandler(){
+    @RequestMapping(value = "/qiniuUpload", method = RequestMethod.GET)
+    public String qiniuUploadFileHandler() {
         return "qiniu_upload";
+    }
+
+    @RequestMapping(value = "getUploadToken", method = RequestMethod.GET)
+    @ResponseBody
+    public UploadToken getUploadToken() {
+        UploadToken uploadToken = UploadManager.createUploadToken();
+        int success = shareFileService.insertShareFile("fileName");
+        return uploadToken;
     }
 }
