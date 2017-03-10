@@ -1,17 +1,29 @@
-group 'zous.springworld'
-version '1.0-SNAPSHOT'
-
-
 apply plugin: 'java'
 apply plugin: 'war'
+apply plugin: 'maven'
 
+group 'zous.springworld'
+version '1.0-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    maven {
+        url = "https://mvnrepository.com"
+    }
 }
 
+
+//1. exclude commons-logging
+//configurations.all {
+//    exclude group: "commons-logging", module: "commons-logging"
+//}
+String springVersion = '4.1.7.RELEASE'
+String slf4jVersion = '1.7.7'
+
+
 dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile(
             'org.springframework:spring-core:4.1.7.RELEASE',
             "org.springframework:spring-aop:4.1.7.RELEASE",
@@ -19,7 +31,7 @@ dependencies {
             "org.springframework:spring-aspects:4.1.7.RELEASE", //aop切面方法
             "org.springframework:spring-context:4.1.7.RELEASE",
             "org.springframework:spring-web:4.1.7.RELEASE",
-            "org.springframework:spring-webmvc:4.1.7.RELEASE",//这就是spring-mvc
+            "org.springframework:spring-webmvc:4.1.7.RELEASE",//spring-mvc
             "org.springframework:spring-context-support:4.1.7.RELEASE",
             "org.springframework:spring-jdbc:4.1.7.RELEASE",
             "commons-dbcp:commons-dbcp:1.4",
@@ -48,7 +60,7 @@ dependencies {
     providedCompile 'javax.servlet:servlet-api:2.5'
 
     //  日志
-    compile 'log4j:log4j:1.2.17'
-
+//    compile 'org.slf4j:slf4j-api:1.7.12'
+//    providedCompile 'org.apache.logging.log4j:log4j:2.3'
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }

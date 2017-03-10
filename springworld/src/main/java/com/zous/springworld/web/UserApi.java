@@ -20,6 +20,7 @@ public class UserApi {
     @ResponseBody
     public String HelloWorld(){
         User user = userService.selectUser(1);
+
         return user+"";
     }
 
