@@ -13,15 +13,15 @@ repositories {
 
 dependencies {
     compile(
-            'org.springframework:spring-core:4.0.5.RELEASE',
-            "org.springframework:spring-aop:4.0.5.RELEASE",
-            "org.springframework:spring-beans:4.0.5.RELEASE",
-            "org.springframework:spring-aspects:4.0.5.RELEASE", //aop切面方法
-            "org.springframework:spring-context:4.0.5.RELEASE",
-            "org.springframework:spring-web:4.0.5.RELEASE",
-            "org.springframework:spring-webmvc:4.0.5.RELEASE",//这就是spring-mvc
-            "org.springframework:spring-context-support:4.0.5.RELEASE",
-            "org.springframework:spring-jdbc:4.0.5.RELEASE",
+            'org.springframework:spring-core:4.1.7.RELEASE',
+            "org.springframework:spring-aop:4.1.7.RELEASE",
+            "org.springframework:spring-beans:4.1.7.RELEASE",
+            "org.springframework:spring-aspects:4.1.7.RELEASE", //aop切面方法
+            "org.springframework:spring-context:4.1.7.RELEASE",
+            "org.springframework:spring-web:4.1.7.RELEASE",
+            "org.springframework:spring-webmvc:4.1.7.RELEASE",//这就是spring-mvc
+            "org.springframework:spring-context-support:4.1.7.RELEASE",
+            "org.springframework:spring-jdbc:4.1.7.RELEASE",
             "commons-dbcp:commons-dbcp:1.4",
             "org.testng:testng:6.8.8",
             'mysql:mysql-connector-java:5.1.38',
@@ -38,9 +38,17 @@ dependencies {
             "commons-fileupload:commons-fileupload:1.2.1",
             "com.alibaba:fastjson:1.2.8",
 
-           'com.qiniu:qiniu-java-sdk:7.1.+',
+            'com.qiniu:qiniu-java-sdk:7.1.+',
 
     )
+
+//    testCompile("org.springframework:spring-test:4.0.5.RELEASE")
+    compile 'javax.servlet:jstl:1.2'
+    //include in compile only, exclude in the war
+    providedCompile 'javax.servlet:servlet-api:2.5'
+
+    //  日志
+    compile 'log4j:log4j:1.2.17'
 
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }

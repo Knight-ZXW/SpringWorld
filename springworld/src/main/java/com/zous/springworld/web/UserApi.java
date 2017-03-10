@@ -1,7 +1,7 @@
 package com.zous.springworld.web;
 
 import com.zous.springworld.entity.User;
-import com.zous.springworld.mapper.UserMapper;
+import com.zous.springworld.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/api")
 public class UserApi {
     @Autowired
-    private UserMapper userMapper;
+    private UserService userService;
 
     @RequestMapping(value = "/test",produces="application/json;charset=UTF-8")
     @ResponseBody
     public String HelloWorld(){
-        User user = userMapper.selectUser(1);
+        User user = userService.selectUser(1);
         return user+"";
     }
 
@@ -29,7 +29,7 @@ public class UserApi {
         User user = new User();
         user.setName("xx");
         user.setPassword("dfdf");
-        int success = userMapper.insertUser(user);
+        userService.registerUser(user);
         return user+"";
     }
 }

@@ -51,4 +51,9 @@ public class FileApi {
                     + " because the file was empty.";
         }
     }
+
+    @RequestMapping(value = "/qiniuUpload",method = RequestMethod.GET)
+    public String qiniuUploadFileHandler(){
+        return "qiniu_upload";
+    }
 }
