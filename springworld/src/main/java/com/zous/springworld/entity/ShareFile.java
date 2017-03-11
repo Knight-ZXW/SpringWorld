@@ -6,12 +6,13 @@ import java.sql.Date;
  * Created by zhuoxiuwu on 2017/3/9.
  */
 public class ShareFile {
-    /*保存在七牛云空间时的指定前缀*/
     public static final String prefix ="/share/pdf/";
     private String _id;
     private String fileName;
-    /**目前只支持pdf*/
     private String fileType;
+
+    private Date uploadTime;
+    private String url;
 
     public String getId() {
         return _id;
@@ -53,9 +54,4 @@ public class ShareFile {
         this.url = url;
     }
 
-    /**文件的上传时间*/
-
-    private Date uploadTime;
-    /*文件上传后的url*/
-    private String url;
 }

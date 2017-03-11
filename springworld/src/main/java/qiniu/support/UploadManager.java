@@ -10,18 +10,15 @@ import com.qiniu.util.StringMap;
 import java.util.HashMap;
 
 /**
- * 七牛云上传的管理帮助类
  */
 public class UploadManager {
 
     private static String SHARE_FILE_BUCKET = "share-pdf";
-    //我们需要限制 文件上传后保存的文件名，限制文件后缀，
-    /*七牛云用到的上传凭证*/
-    private Auth auth;
     private static HashMap<String, String> qiniuConfig;
 
+    private Auth auth;
 
-    private UploadManager() {
+    public UploadManager() {
         qiniuConfig = QiniuUtil.getQiniuConfig();
     }
 
@@ -39,7 +36,7 @@ public class UploadManager {
         return null;
     }
 
-    public static UploadToken createUploadToken() {
+    public  UploadToken createUploadToken() {
         String token = getAuth().uploadToken(SHARE_FILE_BUCKET);
         UploadToken uploadToken = new UploadToken();
         uploadToken.setToken(token);

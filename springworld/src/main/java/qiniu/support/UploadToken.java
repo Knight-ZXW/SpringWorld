@@ -3,6 +3,7 @@ package qiniu.support;
 /**
  * Created by zhuoxiuwu on 2017/3/10.
  */
+
 public class UploadToken {
     private String token;
 

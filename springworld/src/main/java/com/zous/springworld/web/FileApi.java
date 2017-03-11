@@ -2,11 +2,7 @@ package com.zous.springworld.web;
 
 import com.zous.springworld.service.ShareFileService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import qiniu.support.UploadManager;
 import qiniu.support.UploadToken;
@@ -19,7 +15,7 @@ import java.util.logging.Logger;
 /**
  * Created by zhuoxiuwu on 2017/3/9.
  */
-@Controller
+@RestController
 public class FileApi {
     private static final Logger logger = Logger.getLogger(FileApi.class.getSimpleName());
     @Autowired
@@ -64,11 +60,11 @@ public class FileApi {
         return "qiniu_upload";
     }
 
-    @RequestMapping(value = "getUploadToken", method = RequestMethod.GET)
-    @ResponseBody
+    @RequestMapping(value = "getUploadToken")
     public UploadToken getUploadToken() {
-        UploadToken uploadToken = UploadManager.createUploadToken();
-        int success = shareFileService.insertShareFile("fileName");
+        UploadManager uploadManager = new UploadManager();
+        UploadToken uploadToken = uploadManager.createUploadToken();
+//        int success = shareFileService.insertShareFile("fileName");
         return uploadToken;
     }
 }

@@ -2,7 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zous.springworld.mapper.UserMapper">
+<mapper namespace="com.zous.springworld.mapper.ShareFileMapper">
+    <cache/>
     <select id="addShareFile" resultType="com.zous.springworld.entity.ShareFile">
         INSERT INTO share_file
         (
@@ -13,10 +14,10 @@
             `url`)
         VALUES
             (
-                #{file_name},
-                #{file_type},
-                #{upload_time},
-                #{share_user},
+                #{fileName},
+                #{fileType},
+                #{uploadTime},
+                #{shareUser},
                 #{url})
     </select>
 
