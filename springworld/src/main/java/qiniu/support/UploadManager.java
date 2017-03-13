@@ -7,6 +7,7 @@ package qiniu.support;
 import com.qiniu.util.Auth;
 import com.qiniu.util.StringMap;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
