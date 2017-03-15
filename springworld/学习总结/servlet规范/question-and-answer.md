@@ -25,3 +25,7 @@ Javax.servlet.Servlet 接口中的 init、service 和 destroy 这些API来表示
 ## 什么是ServletContext
 
 ServletContext 是由容器供应商负责提供的，表示servlet运行所在的 Web 应用的视图。每一个部署到容器的应用 Web 应用都有 Servlet 接口的实例与之关联。在容器分布在多台虚拟机的情况下，每个  JVM 的每个 Web 应用都有一个 ServletContext 实例。如果容器内的 Servlet 没有部署到 Web 应用中，则隐含的作为“默认”Web 应用的一部分，并有一个默认的 ServletContext。在分布式的容器中，默认的 ServletContext 是非分布式的且仅存在于一个 JVM 中。     
+
+
+## servlet 规范指南
+servlet 规范是 javaee 对servlet 容器应该支持的功能、实现的一个规范，包含了太多的细节，还是在实践中学习吧。
