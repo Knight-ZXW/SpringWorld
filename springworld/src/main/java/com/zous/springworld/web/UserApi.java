@@ -5,7 +5,13 @@ import com.zous.springworld.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.logging.Logger;
 
 /**
  * Created by zhuoxiuwu on 2017/3/5.
@@ -15,22 +21,33 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class UserApi {
     @Autowired
     private UserService userService;
+    Logger logger = Logger.getLogger(getClass().getSimpleName());
 
-    @RequestMapping(value = "/test",produces="application/json;charset=UTF-8")
+    @RequestMapping(value = "/test")
     @ResponseBody
-    public String HelloWorld(){
+    public User HelloWorld(HttpServletRequest request, HttpServletResponse response) {
+        request.getSession().setAttribute("testKey", "testValue");
         User user = userService.selectUser(1);
-
-        return user+"";
+        response.addCookie(new Cookie("testCookie", "testCookieValue"));
+        return user;
     }
 
-    @RequestMapping(value = "/register",produces="application/json;charset=UTF-8")
+
+    @RequestMapping(value = "/register",
+            method = RequestMethod.POST)
     @ResponseBody
-    public String register(){
+    public User register(String userName, String pwd, HttpServletRequest request) {
         User user = new User();
-        user.setName("xx");
-        user.setPassword("dfdf");
+        user.setName(userName);
+        user.setPassword(pwd);
         userService.registerUser(user);
-        return user+"";
+        request.getSession().setAttribute("user", user);
+        return user;
+    }
+
+    @RequestMapping(value = "whoIam", method = RequestMethod.GET)
+    @ResponseBody
+    public User whoIam(HttpServletRequest request) {
+        return (User) request.getSession().getAttribute("user");
     }
 }
