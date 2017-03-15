@@ -50,4 +50,11 @@ public class UserApi {
     public User whoIam(HttpServletRequest request) {
         return (User) request.getSession().getAttribute("user");
     }
+
+    @RequestMapping(value = "logout",method = RequestMethod.DELETE)
+    @ResponseBody
+    public String logout(HttpServletRequest request){
+        request.getSession().invalidate();
+        return "success";
+    }
 }
