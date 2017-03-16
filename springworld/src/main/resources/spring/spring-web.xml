@@ -16,7 +16,15 @@
         (2)提供一些列：数据绑定，数字和日期的format @NumberFormat, @DateTimeFormat, xml,json默认读写支持
     -->
     <context:annotation-config/>
-    <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager" />
+    <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager" >
+        <!--<mvc:message-converters register-defaults="true">-->
+            <!--&lt;!&ndash; @ResponseBody乱码问题，将StringHttpMessageConverter的默认编码设为UTF-8 &ndash;&gt;-->
+            <!--<bean class="org.springframework.http.converter.StringHttpMessageConverter">-->
+                <!--<constructor-arg value="UTF-8"/>-->
+            <!--</bean>-->
+            <!---->
+        <!--</mvc:message-converters>-->
+    </mvc:annotation-driven>
     <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
         <property name="favorPathExtension" value="false" />
         <property name="favorParameter" value="false" />

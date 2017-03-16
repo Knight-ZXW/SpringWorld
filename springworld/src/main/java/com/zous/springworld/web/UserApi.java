@@ -1,5 +1,6 @@
 package com.zous.springworld.web;
 
+import com.zous.rest.Result;
 import com.zous.springworld.entity.User;
 import com.zous.springworld.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Logger;
 
 /**
@@ -36,25 +39,32 @@ public class UserApi {
     @RequestMapping(value = "/register",
             method = RequestMethod.POST)
     @ResponseBody
-    public User register(String userName, String pwd, HttpServletRequest request) {
+    public Result register(String userName, String pwd, HttpServletRequest request) {
         User user = new User();
         user.setName(userName);
         user.setPassword(pwd);
         userService.registerUser(user);
         request.getSession().setAttribute("user", user);
-        return user;
+        ArrayList<User> users = new ArrayList<>();
+        users.add(user);
+        users.add(user);
+        HashMap<String, Object> stringObjectHashMap = new HashMap<>();
+        stringObjectHashMap.put("users",users);
+        return Result.ok(users);
     }
 
     @RequestMapping(value = "whoIam", method = RequestMethod.GET)
     @ResponseBody
-    public User whoIam(HttpServletRequest request) {
-        return (User) request.getSession().getAttribute("user");
+    public Result<User> whoIam(HttpServletRequest request) {
+        return Result.ok((User) request.getSession().getAttribute("user"));
     }
 
-    @RequestMapping(value = "logout",method = RequestMethod.DELETE)
+    @RequestMapping(value = "logout", method = RequestMethod.DELETE)
     @ResponseBody
-    public String logout(HttpServletRequest request){
+    public Result logout(HttpServletRequest request) {
         request.getSession().invalidate();
-        return "success";
+        return Result
+                .ok()
+                .setMessage("退出成功");
     }
 }

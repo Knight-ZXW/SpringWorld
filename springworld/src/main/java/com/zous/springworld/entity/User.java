@@ -1,5 +1,7 @@
 package com.zous.springworld.entity;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 /**
  * Created by OnlyLoveForBelinda on 2016/4/12.
  */
@@ -8,7 +10,6 @@ public class User {
     private int userId;
     private String name;
     private String password;
-
     public int getUserId() {
         return userId;
     }
