@@ -1,10 +1,11 @@
 package com.zous.springworld.entity;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * Created by OnlyLoveForBelinda on 2016/4/12.
  */
+@JsonRootName(value = "XXX")
 public class User {
 
     private int userId;

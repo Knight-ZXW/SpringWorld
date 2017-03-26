@@ -1,14 +1,11 @@
 package com.zous.rest;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * Created by zhuoxiuwu on 2017/3/11.
  */
-@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Result<T> {
     /**
      * 封装json对象，所有返回结果都使用它
@@ -17,7 +14,6 @@ public class Result<T> {
     private boolean success;// 是否成功标志
 
     @JsonTypeInfo(use=JsonTypeInfo.Id.NAME,include = JsonTypeInfo.As.WRAPPER_OBJECT)
-    @JsonSerialize()
     private T data;// 成功时返回的数据
 
     private String error;// 错误信息

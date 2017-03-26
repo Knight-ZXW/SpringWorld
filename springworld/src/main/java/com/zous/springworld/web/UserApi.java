@@ -28,11 +28,11 @@ public class UserApi {
 
     @RequestMapping(value = "/test")
     @ResponseBody
-    public User HelloWorld(HttpServletRequest request, HttpServletResponse response) {
+    public Result HelloWorld(HttpServletRequest request, HttpServletResponse response) {
         request.getSession().setAttribute("testKey", "testValue");
         User user = userService.selectUser(1);
         response.addCookie(new Cookie("testCookie", "testCookieValue"));
-        return user;
+        return Result.ok(user);
     }
 
 
