@@ -51,6 +51,12 @@ offset 即获取的数据结果的偏移，cout即结果的数量，注意 offse
 如果LIMIT 后面只跟一个参数，那么其实是表示count,即 **LIMIT count**。它等价于 **LIMIT 0,count**
 
 ## IN Operator
-    
+　IN 用于
+　
+　
+### 注意NOT IN 与Null值遇上的一个情况
+表中存在 name 为 xiaoming1 xiaoming2 以及 null，当判断name NOT IN (xiaoming1 ,NULL)
+(一般我们不会写出这样的语句，但是注意，如果IN后面接子查询的情况下存在这种情况)等同于
+where name<>xiaoming1 and name<>NULL 而 name 与 NULL比较会返回false,导致这个表示式的值一定是false,**所以我们在子查询中应该过滤掉NULL的情况**
 
 
