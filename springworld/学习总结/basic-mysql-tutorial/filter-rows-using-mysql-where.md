@@ -94,3 +94,30 @@ where name<>xiaoming1 and name<>NULL 而 name 与 NULL比较会返回false,导�
 expr [NOT] BETWEEN  下限 AND 上限
 ```
 
+##LIKE
+like 用于 模糊查询，支持表达式方式
+LIKE 提供了2个 **通配符** 一个是 % 表示0或者多个 字符， _ 表示任意单个字符
+```sql
+WHERE 
+COLUMN LIKE '[表达式]'
+```
+
+##ORDER BY
+ORDER BY用于结果集的排序，ORDER BY 后面指定用于排序的字段，
+```sql
+SELECT column1, column2,...
+FROM tbl
+ORDER BY column1 [ASC|DESC], column2 [ASC|DESC],...
+```
+其中 ASC表示升序 DESC表示降序， ORDER BY 支持在遇到排序结果时根据多个字段依次排序，
+
+## UNION
+UNION用于合并 多个 SELECT 语句的结果集。
+UNION 的SELECT语句必须拥有相同的列、顺序及数据类型(或者支持转换，以第一个SELECT语句为主)，这样才能合并。
+UNION 在合并时会去掉相同值的数据，如果需要保留相同的数据 则使用 UNION　ALL
+```sql
+SELECT column1, column2
+UNION [DISTINCT | ALL]
+SELECT column1, column2
+UNION [DISTINCT | ALL]
+```
