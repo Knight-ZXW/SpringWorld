@@ -121,3 +121,37 @@ UNION [DISTINCT | ALL]
 SELECT column1, column2
 UNION [DISTINCT | ALL]
 ```
+
+## Alias
+Alias  用于指定别名，你可以用于给列 或者表指定别名。
+AS 是可以省略的
+
+```sql
+SELECT
+ CONCAT_WS(', ', lastName, firstname) AS `Full name`
+FROM
+ employees;
+```
+
+在这个例子中，我们从 employees 中查询 lastName, firstname 并且使用 CONCAT_WS函数用 符号,连接值，且 以Full Name作为列名，
+如果不适用 AS 起个别名，得到的结果的列名 会是 **CONCAT_WS(',',lastName,firstname)**
+
+　　在执行一些负责的sql语句中可能会用到多张表，如果2个表有相同的字段名，我们需要在使用这个字段的时候加上表名，否则sql语句会出错,。
+这个例子中，我们给2个表名起了别名以方便sql语句的编写，如果不起别名，则你需要带上表名的全称
+
+```sql
+SELECT
+ customerName,
+ COUNT(o.orderNumber) total
+FROM
+ customers c
+INNER JOIN orders o ON c.customerNumber = o.customerNumber
+GROUP BY
+ customerName
+ORDER BY
+ total DESC;
+```
+
+
+
+
