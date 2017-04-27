@@ -26,7 +26,7 @@ INSERT 语句还能与 QUERY语句配合 实现诸如复制整个表的效果
 ```sql
 INSERT INTO table_1
 SELECT c1, c2, FROM table_2;
-```
+``` 
 比如我们复制整个task表到task1
 首先创建一个属性和tasks表一样的tasks_1空表
 ```sql
