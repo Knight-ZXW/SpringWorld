@@ -15,3 +15,21 @@ LOW_LOW_PRIORITY
 注意的是，这个可能存在阻塞的情况，如果一直有查询在的话，那么意味着你的更新操作会一直被滞后。
 IGNORE
 忽略错误，即使中间某条更新出错，继续执行剩余的列的更新操作。
+
+## UPDATE SET 数据使用 子查询的数据
+UPDATE SET 语句的 要更新的值不一定必须是显示指定具体数据的，也可以是来自一个子查询返回的结果，比如
+```sql
+UPDATE customers 
+SET 
+    salesRepEmployeeNumber = (SELECT 
+            employeeNumber
+        FROM
+            employees
+        WHERE
+            jobtitle = 'Sales Rep'
+        LIMIT 1)
+WHERE
+    salesRepEmployeeNumber IS NULL;
+```
+在这条语句中，我们选择所有 salesRepEmpliyeeNumber 是NULL 的集合，将它们的 salesRepEmployeeNumber 值设置为 来自一个子查询，该子查询 查询employee表，并且jobtitle 是 **Sales Rep** 的数据，并且使用 RAND() 函数 打乱集合，使用 LMIT 限制结果集返回一个。
+
