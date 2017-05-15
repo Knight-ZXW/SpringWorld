@@ -33,3 +33,12 @@ WHERE
 ```
 在这条语句中，我们选择所有 salesRepEmpliyeeNumber 是NULL 的集合，将它们的 salesRepEmployeeNumber 值设置为 来自一个子查询，该子查询 查询employee表，并且jobtitle 是 **Sales Rep** 的数据，并且使用 RAND() 函数 打乱集合，使用 LMIT 限制结果集返回一个。
 
+## UPDATE JOIN syntax
+UPDATE 跟 SELECT 可以联表执行
+```sql
+UPDATE T1, T2,
+[INNER JOIN | LEFT JOIN] T1 ON T1.C1 = T2. C1
+SET T1.C2 = T2.C2, 
+    T2.C3 = expr
+WHERE condition
+```
